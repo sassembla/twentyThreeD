@@ -1,0 +1,35 @@
+# Required Python packages get listed here, one per line.
+# Lock the version number to avoid unexpected changes.
+
+# You can also install packages from a git repository, e.g.:
+# git+https://github.com/runpod/runpod-python.git
+# To learn more, see https://pip.pypa.io/en/stable/reference/requirements-file-format/
+
+runpod
+hf_transfer
+
+accelerate
+diffusers
+transformers
+
+ninja
+pybind11
+einops
+opencv-python
+numpy
+torch
+torchvision
+omegaconf
+
+tqdm
+
+trimesh
+pymeshlab
+pygltflib
+xatlas
+
+accelerate
+pillow
+
+# TODO: あとで調整
+git+https://github.com/Tencent/Hunyuan3D-2.git
