@@ -25,11 +25,11 @@ container_disk_size_gb = 100
 POD_INACTIVITY_TIMEOUT = "1800"
 RUNPOD_DEBUG_LEVEL = "debug"
 UVICORN_LOG_LEVEL = "warning"
-TMPDIR = "/runpod-volume/tmp"
+#TMPDIR = "/runpod-volume/tmp"
 
 [endpoint]
 active_workers = 0
-max_workers = 2
+max_workers = 1
 flashboot = true
 
 [runtime]

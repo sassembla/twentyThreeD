@@ -16,12 +16,12 @@ from hy3dgen.shapegen.pipelines import export_to_trimesh
 
 # 環境設定
 os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "0"
-os.environ["HF_HOME"] = "/runpod-volume"
-os.environ["HF_HUB_CACHE"] = "/runpod-volume/huggingface"
-os.environ["TRANSFORMERS_CACHE"] = "/runpod-volume/transformers"
-os.environ["XDG_CACHE_HOME"] = "/runpod-volume"
-os.environ["HY3DGEN_MODELS"] = "/runpod-volume/hy3dgen"
-os.environ["TMPDIR"] = "/runpod-volume/tmp"
+os.environ["HF_HOME"] = "/workspace"
+os.environ["HF_HUB_CACHE"] = "/workspace/huggingface"
+os.environ["TRANSFORMERS_CACHE"] = "/workspace/transformers"
+os.environ["XDG_CACHE_HOME"] = "/workspace"
+os.environ["HY3DGEN_MODELS"] = "/workspace/hy3dgen"
+os.environ["TMPDIR"] = "/workspace/tmp"
 
 device = "cuda"
 

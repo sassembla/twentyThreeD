@@ -12,12 +12,29 @@ FROM runpod/base:0.6.1-cuda11.8.0
 # If you need system dependencies that are not included in the base image, add them here.
 # You must override the base image in runpod.toml with an image that includes your dependencies
 # for changes to propagate to your Project pod.
+ENV HF_HUB_ENABLE_HF_TRANSFER="0"
+ENV HF_HOME="/workspace"
+ENV HF_HUB_CACHE="/workspace/huggingface"
+ENV TRANSFORMERS_CACHE="/workspace/transformers"
+ENV XDG_CACHE_HOME="/workspace"
+ENV HY3DGEN_MODELS="/workspace/hy3dgen"
+ENV TMPDIR="/workspace/tmp"
+
+RUN mkdir -p /workspace/huggingface \
+             /workspace/transformers \
+             /workspace/hy3dgen \
+             /workspace/tmp
 
 # Python dependencies
 COPY builder/requirements.txt /requirements.txt
 RUN python3.10 -m pip install --upgrade pip && \
     python3.10 -m pip install --upgrade -r /requirements.txt --no-cache-dir && \
     rm /requirements.txt
+
+COPY download_model.py /download_model.py
+
+RUN python3.10 /download_model.py && \
+    rm /download_model.py
 
 # NOTE: The base image comes with multiple Python versions pre-installed.
 #       It is recommended to specify the version of Python when running your code.
